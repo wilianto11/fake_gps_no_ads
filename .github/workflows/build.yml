@@ -1,0 +1,24 @@
+name: Build APK Release
+
+on:
+  workflow_dispatch: # Manual trigger via GitHub UI
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          flutter-version: '3.19.5'
+
+      - name: Build APK
+        run: flutter build apk --release --split-per-abi
+
+      - name: Upload APK
+        uses: actions/upload-artifact@v3
+        with:
+          name: release-apks
+          path: build/app/outputs/flutter-apk/*-release.apk
