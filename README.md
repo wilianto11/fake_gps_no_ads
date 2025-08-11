@@ -25,7 +25,7 @@
 
 ## 🚀 Panduan Instalasi
 
-1. Unduh paket APK resmi di halaman [[Releases](https://chatgpt.com/releases)](../../releases).
+1. Unduh paket APK resmi di halaman [[Releases]()](../../releases).
 2. Pasang aplikasi di perangkat Android kamu (pastikan izinkan instalasi dari sumber tidak dikenal jika perlu).
 3. Aktifkan **Developer Options** di perangkat kamu, kemudian aktifkan izin **Mock Location App** khusus untuk aplikasi ini.
 4. Buka aplikasi, pilih lokasi palsu menggunakan peta interaktif atau masukkan koordinat secara manual.
