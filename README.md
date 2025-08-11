@@ -1,4 +1,4 @@
-.# 🚩 Fake GPS No Ads — Advanced Location Spoofer with Hide Mock Location
+# 🚩 Fake GPS No Ads — Advanced Location Spoofer with Hide Mock Location
 
 **Fake GPS No Ads** adalah aplikasi penyematan lokasi palsu paling **ringan, cepat, dan bebas iklan** untuk perangkat Android. Dirancang dengan teknologi mutakhir untuk memberikan kendali penuh atas lokasi perangkatmu, sekaligus menjaga kerahasiaan status mock location agar tak terdeteksi oleh aplikasi lain yang mencoba mengidentifikasi spoofing lokasi.
 
@@ -66,7 +66,7 @@ Proyek ini dilisensikan di bawah **MIT License** — bebas digunakan dan dikemba
 
 ## 📸 Screenshot
 
-*(Tambahkan screenshot aplikasi yang menunjukkan fitur peta, input koordinat, dan toggle hide mock location)*
+
 
 ---
 
