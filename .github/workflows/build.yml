@@ -2,23 +2,48 @@ name: Build APK Release
 
 on:
   workflow_dispatch: # Manual trigger via GitHub UI
+  push:
+    branches:
+      - main    # atau branch lain yang kamu inginkan
 
 jobs:
   build:
     runs-on: ubuntu-latest
+
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout repository
+        uses: actions/checkout@v4
 
       - name: Setup Flutter
         uses: subosito/flutter-action@v2
         with:
           flutter-version: '3.19.5'
 
-      - name: Build APK
+      - name: Cache Flutter dependencies
+        uses: actions/cache@v3
+        with:
+          path: ~/.pub-cache
+          key: ${{ runner.os }}-pub-${{ hashFiles('**/pubspec.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-pub-
+
+      - name: Install dependencies
+        run: flutter pub get
+
+      - name: Run Flutter format check (optional)
+        run: flutter format --set-exit-if-changed .
+
+      - name: Run Flutter analyze (optional)
+        run: flutter analyze
+
+      - name: Run Flutter tests (optional)
+        run: flutter test
+
+      - name: Build APK (Release, split per ABI)
         run: flutter build apk --release --split-per-abi
 
-      - name: Upload APK
+      - name: Upload APK artifacts
         uses: actions/upload-artifact@v3
         with:
           name: release-apks
-          path: build/app/outputs/flutter-apk/*-release.apk
+          path: build/app/outputs/flutter-apk/app-*-release.apk
